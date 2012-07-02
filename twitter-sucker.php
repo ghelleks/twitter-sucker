@@ -464,7 +464,7 @@ margin-top: 20px;
   </div>
 
   <div class="option">
-  <label for="ws_ts_drop_replies">'.__('Exclude @reply tweets from the digest?', 'twitter-sucker').'</label>
+  <label for="ws_ts_drop_replies">'.__('Exclude @reply tweets?', 'twitter-sucker').'</label>
   <input value="1" type="checkbox" name="ws_ts_drop_replies" id="ws_ts_drop_replies" '.$drop_replies_check.'/_check>
   </div>
 
