@@ -1,4 +1,5 @@
-=== Twitter Sucker ===
+# Twitter Sucker #
+
 Tags: twitter, tweet, post, import, sucker, feed
 Contributors: ghelleks
 Requires at least: 2.7
@@ -7,7 +8,7 @@ Stable Tag: 2.7
 
 Creates a post for each tweet from your twitter account. 
 
-== Description ==
+## Description ##
 
 This plugin uses the pseudo-cron facility available in Wordpress to publish
 each tweet from your Twitter account.
@@ -17,7 +18,7 @@ Notes:
 - This plugin is a shameless fork of Tim Beck's excellent Twitter Digest
   (http://whalespine.org)
 
-== Installation ==
+## Installation ##
 
 1. Download the plugin archive and expand it (you've likely already done this).
 2. Put the 'twitter-sucker.php' file into your wp-content/plugins/ directory.
@@ -25,11 +26,11 @@ Notes:
 4. Go to the Twitter Sucker Options page (Options > Twitter Sucker) to set your Twitter account information and preferences.
 
 
-== Configuration ==
+## Configuration ##
 
 There are a number of configuration options for Twitter Sucker. You can find these in Options > Twitter Sucker.
 
-== ChangeLog ==
+## ChangeLog ##
 
 v1.0
 
@@ -37,7 +38,7 @@ v1.0
 - gut Twitter Digest of fancy scheduling, we're just posting everything one at
   a time now.
 
-== Contact ==
+## Contact ##
 
 If you have questions or comments, please visit:
 
