@@ -42,5 +42,5 @@ v1.0
 
 If you have questions or comments, please visit:
 
-    http://github.com/ghelleks/twitter-sucker
+http://github.com/ghelleks/twitter-sucker
 
