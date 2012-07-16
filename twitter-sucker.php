@@ -47,17 +47,17 @@ define('WS_TD_NOT_ENOUGH_TWEETS', 8); // not scheduled for this day of the week 
 //========================
 // Digest cron activation
 
-register_activation_hook(__FILE__, 'ws_activate_digest');
-register_deactivation_hook(__FILE__, 'ws_deactivate_digest');
+register_activation_hook(__FILE__, 'ws_ts_activate_sucker');
+register_deactivation_hook(__FILE__, 'ws_ts_deactivate_sucker');
 add_action('ws_ts_digest_event', 'ws_ping_twitter');
 
-function ws_activate_digest() {
+function ws_ts_activate_sucker() {
 	if (!wp_next_scheduled('ws_ts_digest_event')) {
 		wp_schedule_event(time(), 'hourly', 'ws_ts_digest_event');
 	}
 }
 
-function ws_deactivate_digest() {
+function ws_ts_deactivate_sucker() {
   wp_clear_scheduled_hook('ws_ts_digest_event');
 }
 
@@ -184,7 +184,7 @@ function ws_create_post($title, $content) {
     $status = 'draft';
     $result = 2;
   } else {
-    $status='pending';
+    $status='publish';
   }
 
   // Create the post
