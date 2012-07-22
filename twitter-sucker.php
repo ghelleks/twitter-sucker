@@ -128,19 +128,22 @@ function ws_ping_twitter() {
 	// Fetch the tweets
 	$tweets = ws_fetch_tweets($url);
 
-	$tweet_content = array();
-
 	// Go through the array and process any tweets from the desired time period 
 	if (count($tweets) > 0) { 
 
 		// remember this for later.
-		$newLastTweet = $tweets[0]->id_str;
+	        $newestTweet = $tweets[0]->id_str;
 
 		// process the tweets
 		foreach ($tweets as $tw_data) {
 
 			// Are we dropping replies?
 			if (get_option('ws_ts_drop_replies') && preg_match('/^@.*/', $tw_data->text)) {
+				continue;
+			}
+
+			// Make extra careful we're not duplicating posts.
+			if ($tw_data->id_str == $lastTweet) {
 				continue;
 			}
       
@@ -158,7 +161,7 @@ function ws_ping_twitter() {
 		}
 
 		// Update the last tweet id
-		update_option('ws_ts_last_tweet', $newLastTweet);
+		update_option('ws_ts_last_tweet', $newestTweet);
 	}
 	else {
 		// no tweets from Twitter
