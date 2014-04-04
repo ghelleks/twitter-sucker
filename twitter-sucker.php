@@ -148,7 +148,7 @@ function ws_ping_twitter() {
 			}
       
 			// All good, so format and add to the content
-			$post_result = ws_create_post($tw_data->text, ws_format_tweet($twitter_user, $tw_data));
+			$post_result = ws_create_post($tw_data->id_str, $tw_data->text, ws_format_tweet($twitter_user, $tw_data));
 
 			if ($post_result == 1 /* Published in future */) {
 				$retval = WS_TD_POST_PUBLISHED;
@@ -177,7 +177,7 @@ function ws_ping_twitter() {
 // 0: published now
 // 1: published in future
 // 2: drafted
-function ws_create_post($title, $content) {
+function ws_create_post($tweet_id, $title, $content) {
 
   global $wpdb;
   $result = 0;
@@ -204,6 +204,7 @@ function ws_create_post($title, $content) {
   // Insert post
   $post_id = wp_insert_post($post_data);
   add_post_meta($post_id, 'ws_tweeted', '1', true);
+  add_post_meta($post_id, 'tweet_id', $tweet_id, true);
 
   // Make it a status update
   set_post_format($post_id, 'status');
